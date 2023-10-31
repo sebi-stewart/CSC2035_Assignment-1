@@ -119,7 +119,7 @@ public class Client {
 			}
 
 			segment.setSize(stringSegment.length());
-			segment.setSq(sequence);
+			segment.setSq(sequence%2);
 			segment.setType(SegmentType.Data);
 			segment.setPayLoad(stringSegment);
 			segment.setChecksum(checksum(stringSegment, isCorrupted(corruptionChance)));

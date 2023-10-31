@@ -238,7 +238,7 @@ public class Server {
 
 			int x = checksum(dataSeg.getPayLoad());
 
-			if (nextSegment == dataSeg.getSq()+1){
+			if (1-nextSegment == dataSeg.getSq()){
 				System.out.println("SERVER: Last Segment received again, resending Acknowledgement");
 
 				//Resending acknowledgement (without loss chance)
@@ -270,7 +270,7 @@ public class Server {
 				System.out.println("SERVER: Calculated checksum is " + x + "  VALID");
 
 				// We are now expecting a new segment
-				nextSegment++;
+				nextSegment = 1-nextSegment;
 
 				Segment ackSeg = new Segment();
 
